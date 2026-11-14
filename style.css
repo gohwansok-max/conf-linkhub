@@ -73,11 +73,13 @@ a.card:hover,a.resource:hover,a.drive-button:hover{border-color:#b9d4ec;box-shad
 .contact-btn.disabled{color:var(--muted);opacity:1}
 
 /* 홍보자료 */
-.resources{display:grid;grid-template-columns:1.25fr 1fr;gap:10px}
+.resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .resource{display:block;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:var(--shadow);transition:.18s}
 .video-thumb{display:grid;height:120px;place-items:center;background:linear-gradient(135deg,#0f3761,#35a8d0)}
 .video-thumb span{display:grid;width:42px;height:42px;place-items:center;padding-left:2px;border-radius:50%;color:var(--blue);background:#fffffff0}
 .flyer-thumb{display:grid;height:120px;place-items:center;color:#a44728;background:linear-gradient(135deg,#ffdd87,#ff8d55);font-size:13px;font-weight:900;line-height:1.25;text-align:center}
+.thumb-ad-image{color:#1b5a8a;background:linear-gradient(135deg,#cfe9fb,#7fc0e8)}
+.thumb-logo{color:#fff;background:linear-gradient(135deg,#123b67,#1d6fe8)}
 .res-meta{padding:11px}
 .resource b{display:block;overflow:hidden;font-size:11px;text-overflow:ellipsis;white-space:nowrap}
 .drive-button{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:11px;padding:12px;border:1px solid transparent;border-radius:13px;color:var(--blue);background:#eaf4ff;font-size:11px;font-weight:900;transition:.18s}
@@ -103,5 +105,6 @@ footer{padding:4px 22px 27px;color:#8b9aab;font-size:10px;line-height:1.6;text-a
   .contact-card{display:flex;align-items:center;gap:9px;padding:12px}
   .contact-card small{width:84px;flex:none}
   .contact-card b{flex:1;margin:0}
-  .resources{grid-template-columns:1fr}
+  .resources{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .video-thumb,.flyer-thumb{height:84px}
 }

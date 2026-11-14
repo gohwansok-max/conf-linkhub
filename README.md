@@ -2,7 +2,7 @@
 
 공식 SNS, 구매처, 담당자 연락처, 홍보자료를 한 곳에 모은 GitHub Pages 정적 사이트.
 
-- 운영 주소: https://conf3.qaplus.kr [확인 필요: CNAME 삭제 이력 있음]
+- 운영 주소: https://conf3.qaplus.kr (`CNAME` 파일 + 가비아 CNAME `conf3` → `gohwansok-max.github.io`)
 - 기본 주소: https://gohwansok-max.github.io/conf-linkhub/
 
 ## 구조
@@ -25,6 +25,8 @@
 | `icon` | 아이콘 종류 (변경 금지) |
 | `title`, `subtitle` | 화면 표시 문구 |
 | `url` | 링크. 비우면 "준비 중"(클릭 불가) 표시 |
+| `use` | `사용`만 화면에 표시 (보류/미사용은 숨김) |
+| `note` | 메모 (화면 미표시) |
 
 - 연락처는 `010-1234-5678` 또는 `name@example.com` 만 적으면 전화/메일로 자동 연결
 - `https://` 생략 가능 (자동 보완)

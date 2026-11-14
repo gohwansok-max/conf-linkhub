@@ -97,9 +97,9 @@
     },
     resource: function (d, href) {
       var a = link(href, "resource");
-      var thumb = el("div", d.icon === "video" ? "video-thumb" : "flyer-thumb");
+      var thumb = el("div", d.icon === "video" ? "video-thumb" : "flyer-thumb thumb-" + d.icon);
       if (d.icon === "video") thumb.appendChild(el("span", null, "▶"));
-      else thumb.innerHTML = "CO.EN.F<br>제품소개서";
+      else thumb.innerHTML = {flyer: "CO.EN.F<br>제품소개서", "ad-image": "광고<br>이미지", logo: "CO.EN.F<br>LOGO"}[d.icon] || d.title;
       var meta = el("div", "res-meta");
       meta.appendChild(el("b", null, d.title));
       if (d.subtitle) meta.appendChild(el("small", null, d.subtitle));
@@ -117,7 +117,7 @@
     document.querySelectorAll("[data-group]").forEach(function (box) {
       var g = box.getAttribute("data-group");
       box.textContent = "";
-      rows.filter(function (r) { return r.group === g; }).forEach(function (r) {
+      rows.filter(function (r) { return r.group === g && (!r.use || r.use === "사용"); }).forEach(function (r) {
         box.appendChild(builders[g](r, normalizeHref(r.url)));
       });
     });

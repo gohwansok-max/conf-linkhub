@@ -1,19 +1,21 @@
-group,icon,title,subtitle,url
-sns,instagram,인스타그램,Instagram,
-sns,facebook,페이스북,Facebook,
-sns,threads,스레드,Threads,
-sns,youtube,유튜브,YouTube,
-sns,naver-clip,네이버 클립,Naver Clip,
-sns,naver-blog,네이버 블로그,Naver Blog,
-sns,blogger,구글 블로그,Blogger,
-sns,x,X,구 Twitter,
-sns,tiktok,TikTok,Short Video,
-shop,smartstore,네이버 스마트스토어,공식 온라인 스토어 바로가기,
-shop,coupang,쿠팡,쿠팡 공식 판매 페이지,
-shop,mall,코엔에프 자사몰,제품 정보와 주문 상담,
-contact,,김덕용 부장,영업·구매 문의,
-contact,,고환석 차장,품질·제품 문의,
-contact,,임이랑 과장,홍보·일반 문의,
-resource,video,코엔에프 홍보 영상,영상 바로 보기,
-resource,flyer,광고·제품 자료,팜플렛 / 이미지,
-drive,,Google Drive 자료실 전체 보기,,
+group,icon,title,subtitle,url,use,note
+sns,instagram,인스타그램,Instagram,https://www.instagram.com/conf___/,사용,"서브: conf_recipe, conf.ai.lab"
+sns,facebook,페이스북,Facebook,https://www.facebook.com/profile.php?id=102143225717469,사용,접속 확인 필요
+sns,threads,스레드,Threads,https://www.threads.net/@conf___,사용,
+sns,youtube,유튜브,YouTube,https://www.youtube.com/@conf7030,사용,
+sns,naver-clip,네이버 클립,Naver Clip,,보류,공개 클립 URL 확인 필요 (계정식별자 vxc86546em)
+sns,naver-blog,네이버 블로그,Naver Blog,https://blog.naver.com/copotion1,사용,
+sns,blogger,구글 블로그,Blogger,https://copotion1.blogspot.com/,사용,
+sns,x,X,구 Twitter,https://x.com/conf_official,사용,
+sns,tiktok,TikTok,Short Video,,미사용,공식 계정 미확인
+shop,smartstore,네이버 스마트스토어,공식 온라인 스토어 바로가기,https://smartstore.naver.com/confstore,사용,
+shop,coupang,쿠팡,쿠팡 공식 판매 페이지,https://www.coupang.com/vp/products/9729670215,사용,대표상품(터닝뷰티 ABC) URL
+shop,mall,코엔에프 자사몰,제품 정보와 주문 상담,https://confshop.kr,사용,
+contact,,김덕용 부장,영업·구매 문의,010-5049-9667,사용,생산관리부 / 이메일 미확인
+contact,,고환석 차장,품질·제품 문의,gohwansok@conf.kr,사용,연구/품질·온라인사업부 / 전화 010-7445-4343
+contact,,임이랑 과장,홍보·일반 문의,010-3672-5468,사용,온라인사업부 / 이메일 dlfkd548@conf.kr
+resource,video,코엔에프 홍보 영상,영상 바로 보기,https://drive.google.com/file/d/1Kt1cgJkHhtztTwQ6CXycG_e46VQVm8AN/view?usp=drivesdk,사용,출근길_포션커피_드라마광고_30s.mp4
+resource,flyer,제품소개서·팜플렛,팜플렛 / 이미지,https://drive.google.com/file/d/1JKALQJ_AtC5dfrZAWOG9iKmZH8LJ2ZUL/view?usp=drivesdk,사용,기업용_팜플렛_ver1.png
+resource,ad-image,광고 이미지,광고 이미지 모음,https://drive.google.com/drive/folders/1fxQQaVPEzlBNtH1VZ_ylbOYBOurNU4SF,사용,04_광고 이미지 모음
+resource,logo,회사 로고,로고 폴더,https://drive.google.com/drive/folders/1bozyGltjBxZ2hIIlWiLkViP43XRhTvfw,사용,02_코엔에프 로고
+drive,,Google Drive 자료실 전체 보기,,https://drive.google.com/drive/folders/13_k6m5oEc5yiWw4Ny2K2w2qDXNYu39B0,사용,링크 공유 설정 확인 필요
