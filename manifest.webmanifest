@@ -1,0 +1,24 @@
+{
+  "name": "코엔에프 공식 링크 허브",
+  "short_name": "코엔에프",
+  "description": "코엔에프 공식 채널과 제품 정보를 한곳에서 확인하세요.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#123b67",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
