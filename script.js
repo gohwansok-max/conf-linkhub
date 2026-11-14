@@ -99,7 +99,7 @@
       var a = link(href, "resource");
       var thumb = el("div", d.icon === "video" ? "video-thumb" : "flyer-thumb thumb-" + d.icon);
       if (d.icon === "video") thumb.appendChild(el("span", null, "▶"));
-      else thumb.innerHTML = {flyer: "CO.EN.F<br>제품소개서", "ad-image": "광고<br>이미지", logo: "CO.EN.F<br>LOGO"}[d.icon] || d.title;
+      else thumb.innerHTML = {flyer: "CONF<br>제품소개서", "ad-image": "광고<br>이미지", logo: "CONF<br>LOGO"}[d.icon] || d.title;
       var meta = el("div", "res-meta");
       meta.appendChild(el("b", null, d.title));
       if (d.subtitle) meta.appendChild(el("small", null, d.subtitle));

@@ -11,7 +11,10 @@ a:focus-visible{outline:3px solid #8ac5ff;outline-offset:3px}
 .hero{position:relative;padding:34px 26px 30px;color:#fff;background:linear-gradient(145deg,#092b4f 0%,#123b67 45%,#3e9ed1 100%);border-radius:0 0 30px 30px;overflow:hidden}
 .hero:after{content:"";position:absolute;width:370px;height:370px;right:-110px;top:-150px;border:1px solid #ffffff2b;border-radius:50%;box-shadow:0 0 0 30px #ffffff0f,0 0 0 62px #ffffff0a}
 .brand{position:relative;z-index:1;display:flex;align-items:center;gap:12px}
-.brand-mark{display:grid;width:46px;height:46px;place-items:center;border-radius:14px;color:var(--blue);background:#fff;font-size:21px;font-weight:900;box-shadow:0 8px 18px #0523424d}
+.brand-mark{display:grid;width:46px;height:46px;place-items:center;border-radius:14px;color:var(--blue);background:#fff;font-size:21px;font-weight:900;box-shadow:0 8px 18px #0523424d;overflow:hidden;padding:4px}
+.brand-mark img{display:block;width:100%;height:100%;object-fit:contain}
+/* icon-180.png는 180px 캔버스에 로고 여백이 크게 들어간 아이콘 원본이라, 헤더에서는 로고가 잘 보이도록 살짝 확대 */
+.brand-mark img{transform:scale(1.55);transform-origin:center}
 .brand strong{font-size:21px;font-weight:900;letter-spacing:-.8px}
 .brand small{display:block;margin-top:3px;color:#ffffffbf;font-size:10px;letter-spacing:1.4px}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 118px;gap:20px;align-items:center;margin-top:27px}
