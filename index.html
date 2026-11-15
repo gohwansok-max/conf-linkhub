@@ -24,13 +24,28 @@
   <meta name="apple-mobile-web-app-title" content="코엔에프">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="stylesheet" href="style.css">
+  <script>
+    /* 설치 프롬프트(beforeinstallprompt)는 페이지 로드 직후 올 수 있어, install.js보다 먼저 이벤트를 확보해 둔다. */
+    window.addEventListener("beforeinstallprompt", function (e) {
+      e.preventDefault();
+      window.__confInstallPrompt = e;
+      window.dispatchEvent(new Event("conf-install-prompt"));
+    });
+    window.addEventListener("appinstalled", function () {
+      window.__confInstalled = true;
+      window.dispatchEvent(new Event("conf-installed"));
+    });
+  </script>
 </head>
 <body>
   <main class="page-shell">
     <header class="hero">
-      <div class="brand">
-        <span class="brand-mark"><img src="icon-180.png" alt="CONF 공식 로고"></span>
-        <div><strong>코엔에프</strong><small>CONF OFFICIAL LINK HUB</small></div>
+      <div class="hero-top">
+        <div class="brand">
+          <span class="brand-mark"><img src="icon-180.png" alt="CONF 공식 로고"></span>
+          <div><strong>코엔에프</strong><small>CONF OFFICIAL LINK HUB</small></div>
+        </div>
+        <button type="button" class="install-btn" id="install-btn" aria-haspopup="dialog" aria-label="코엔에프 앱 설치"><span class="install-btn-icon" aria-hidden="true">↓</span><span>앱 설치</span></button>
       </div>
       <div class="hero-grid">
         <div>
@@ -92,6 +107,22 @@
     <form method="dialog"><button type="submit" style="margin-top:14px; padding:10px 30px; border:0; border-radius:9px; background:#3d281d; color:#fff8ee; font-weight:700; cursor:pointer;">닫기</button></form>
   </dialog>
   <style>#qr-dialog { background:#fffdf9; } #qr-dialog::backdrop { background: rgba(30, 19, 13, .74); }</style>
+  <dialog id="install-dialog" aria-labelledby="install-title" aria-describedby="install-lead">
+    <div class="install-head">
+      <span class="install-badge" aria-hidden="true">↓</span>
+      <div class="install-head-text">
+        <h2 id="install-title">앱 설치 안내</h2>
+        <p class="install-lead" id="install-lead"></p>
+      </div>
+    </div>
+    <ol class="install-steps" id="install-steps"></ol>
+    <div class="install-link" id="install-link-box" hidden>
+      <code id="install-url">https://conf3.qaplus.kr</code>
+      <button type="button" id="install-copy">주소 복사</button>
+    </div>
+    <p class="install-note" id="install-note" hidden></p>
+    <button type="button" class="install-close" id="install-close">닫기</button>
+  </dialog>
   <script>
     (() => {
       const dialog = document.getElementById('qr-dialog');
@@ -101,6 +132,7 @@
   </script>
   <noscript><p style="text-align:center;padding:20px">링크를 보려면 JavaScript를 켜주세요.</p></noscript>
   <script src="script.js"></script>
+  <script src="install.js"></script>
   <script>if ("serviceWorker" in navigator) { window.addEventListener("load", function () { navigator.serviceWorker.register("./service-worker.js").catch(function (err) { console.warn("Service worker registration failed:", err); }); }); }</script>
 </body>
 </html>

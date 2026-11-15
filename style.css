@@ -27,12 +27,13 @@ a:focus-visible{outline:3px solid #c99155;outline-offset:3px}
 .hero:before{content:"";position:absolute;width:320px;height:320px;right:-90px;top:-140px;background:radial-gradient(circle at 50% 50%,#e2c6a138 0%,#e2c6a100 70%);border-radius:50%}
 .hero:after{content:"";position:absolute;width:370px;height:370px;right:-110px;top:-150px;border:1px solid #e2c6a13d;border-radius:50%;box-shadow:0 0 0 30px #e2c6a114,0 0 0 62px #e2c6a10d}
 .brand{position:relative;z-index:1;display:flex;align-items:center;gap:12px}
+.brand>div{min-width:0}
 .brand-mark{display:grid;width:46px;height:46px;place-items:center;border-radius:14px;color:var(--roast);background:var(--card);font-size:21px;font-weight:900;box-shadow:0 8px 18px #120b06a6,0 0 0 1px #e2c6a166;overflow:hidden;padding:4px}
 .brand-mark img{display:block;width:100%;height:100%;object-fit:contain}
 /* icon-180.png는 180px 캔버스에 로고 여백이 크게 들어간 아이콘 원본이라, 헤더에서는 로고가 잘 보이도록 살짝 확대 */
 .brand-mark img{transform:scale(1.75);transform-origin:center}
 .brand strong{font-size:21px;font-weight:900;letter-spacing:-.8px;color:#fdf7ee}
-.brand small{display:block;margin-top:3px;color:#e2c6a1cc;font-size:10px;letter-spacing:1.4px}
+.brand small{display:block;margin-top:3px;color:#e2c6a1cc;font-size:10px;letter-spacing:1.4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 118px;gap:20px;align-items:center;margin-top:27px}
 .eyebrow{margin:0 0 9px;color:var(--gold);font-size:11px;font-weight:800;letter-spacing:1.35px}
 .hero h1{margin:0;font-size:clamp(26px,6vw,36px);line-height:1.2;letter-spacing:-1.8px;color:#fff8ee}
@@ -44,6 +45,44 @@ a:focus-visible{outline:3px solid #c99155;outline-offset:3px}
 .qr-box.empty{display:grid;place-items:center;border:2px dashed var(--latte);border-radius:8px}
 .qr-box.empty img{display:none}
 .qr-box.empty:after{content:"QR";color:#b5a390;font-size:18px;font-weight:900}
+
+/* 상단 액션 영역 — 브랜드 + 앱 설치 버튼 */
+.hero-top{position:relative;z-index:2;display:flex;align-items:center;gap:10px}
+.hero-top .brand{flex:1;min-width:0}
+.install-btn{display:inline-flex;flex:none;align-items:center;gap:7px;min-height:44px;padding:0 15px;border:0;border-radius:999px;color:var(--espresso);background:linear-gradient(140deg,#f2e0c7 0%,#e2c6a1 52%,#d9b382 100%);font:inherit;font-size:12.5px;font-weight:900;letter-spacing:-.3px;cursor:pointer;box-shadow:0 8px 20px #120b0680,0 0 0 1px #f4e3ca59;transition:transform .18s,box-shadow .18s}
+.install-btn:hover,.install-btn:focus-visible{transform:translateY(-1px);box-shadow:0 12px 26px #120b0699,0 0 0 1px #f4e3ca99}
+.install-btn:active{transform:translateY(0)}
+.install-btn:focus-visible{outline:3px solid #f4e3ca;outline-offset:3px}
+.install-btn[hidden]{display:none}
+.install-btn-icon{display:grid;width:21px;height:21px;place-items:center;border-radius:50%;color:#f2e0c7;background:var(--espresso);font-size:12px;font-weight:900;line-height:1}
+.install-btn.is-ready{animation:install-pulse 2.4s ease-in-out 2}
+@keyframes install-pulse{0%,100%{box-shadow:0 8px 20px #120b0680,0 0 0 1px #f4e3ca59}50%{box-shadow:0 8px 22px #120b0699,0 0 0 5px #e2c6a13d}}
+
+/* 설치 안내 시트 */
+#install-dialog{width:min(430px, calc(100% - 32px));max-width:none;margin:auto;border:0;border-radius:22px;padding:20px 19px 17px;color:var(--ink);background:var(--bg);box-shadow:0 22px 64px #000000a6}
+#install-dialog::backdrop{background:rgba(30,19,13,.76)}
+#install-dialog.fallback{position:fixed;top:50%;left:50%;z-index:9999;transform:translate(-50%,-50%);margin:0;max-height:88vh;overflow:auto}
+body.install-fallback::before{content:"";position:fixed;inset:0;z-index:9998;background:rgba(30,19,13,.76)}
+.install-head{display:flex;align-items:flex-start;gap:11px}
+.install-badge{display:grid;flex:none;width:38px;height:38px;place-items:center;border-radius:12px;color:#f6ecdd;background:linear-gradient(140deg,var(--bark),var(--caramel));font-size:18px;font-weight:900;line-height:1;box-shadow:0 6px 14px rgba(74,50,37,.28)}
+.install-head-text{min-width:0}
+#install-title{margin:0;color:var(--roast);font-size:18px;letter-spacing:-.7px;line-height:1.3}
+.install-lead{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+.install-steps{display:grid;gap:8px;margin:15px 0 0;padding:0;list-style:none}
+.install-steps li{display:flex;align-items:flex-start;gap:9px;padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:#3a2a20;font-size:12px;line-height:1.55}
+.install-num{display:grid;flex:none;width:19px;height:19px;margin-top:1px;place-items:center;border-radius:50%;color:#f6ecdd;background:var(--roast);font-size:10.5px;font-weight:900;line-height:1}
+.install-text{min-width:0}
+.install-text b{color:var(--roast);font-weight:900}
+.install-link{display:flex;align-items:center;gap:8px;margin-top:13px;padding:8px 8px 8px 12px;border:1px dashed #dccbb4;border-radius:11px;background:#fffaf2}
+.install-link[hidden]{display:none}
+#install-url{flex:1;min-width:0;overflow:hidden;color:#7a6350;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+#install-copy{flex:none;min-height:34px;padding:0 12px;border:0;border-radius:9px;color:#fff8ee;background:var(--roast);font:inherit;font-size:11.5px;font-weight:900;white-space:nowrap;cursor:pointer}
+#install-copy.is-copied{background:#5a7d4f}
+.install-note{margin:11px 2px 0;color:#a2917f;font-size:11px;line-height:1.55}
+.install-note[hidden]{display:none}
+.install-note b{color:#8c583a}
+.install-close{display:block;width:100%;margin-top:14px;padding:12px;border:0;border-radius:12px;color:var(--roast);background:#efe2d0;font:inherit;font-size:13px;font-weight:900;cursor:pointer}
+.install-close:hover{background:#e8d8c2}
 
 /* Content */
 .content{padding:24px 22px 30px}
@@ -132,6 +171,8 @@ footer{padding:4px 22px 27px;color:#a2917f;font-size:10px;line-height:1.6;text-a
   .hero h1{font-size:25px}
   .hero-copy{font-size:12px}
   .hero-copy br{display:none}
+  .install-btn{min-height:42px;padding:0 13px;font-size:12px;gap:6px}
+  .install-btn-icon{width:19px;height:19px;font-size:11px}
   .qr-card{padding:8px}
   .qr-box{width:78px;height:78px}
   .content{padding-right:16px;padding-left:16px}
@@ -150,4 +191,8 @@ footer{padding:4px 22px 27px;color:#a2917f;font-size:10px;line-height:1.6;text-a
   .contact-card b{flex:1;margin:0}
   .resources{grid-template-columns:repeat(2,minmax(0,1fr))}
   .video-thumb,.flyer-thumb{height:84px}
+}
+@media(max-width:365px){
+  .brand small{display:none}
+  .install-btn{padding:0 11px;font-size:11.5px}
 }
