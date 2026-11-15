@@ -159,13 +159,13 @@ a.card:hover,a.resource:hover,a.drive-button:hover{border-color:var(--latte);box
 .resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .resource{display:block;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:var(--card);box-shadow:var(--shadow);transition:.18s}
 /* 썸네일: 실제 대표 이미지를 깔고, 이미지가 없으면 아래 그라데이션+문구로 대체 */
-.res-thumb{position:relative;height:120px;overflow:hidden;background:linear-gradient(135deg,#f7e2bd,#d99a5f)}
+.res-thumb{position:relative;aspect-ratio:3/2;overflow:hidden;background:linear-gradient(135deg,#f7e2bd,#d99a5f)}
 .res-thumb .res-label{position:absolute;inset:0;display:grid;place-items:center;padding:0 6px;color:#6d3d1d;font-size:13px;font-weight:900;line-height:1.25;text-align:center}
 .res-thumb .res-img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 .res-thumb.img-missing .res-img{display:none}
 .res-thumb.thumb-logo{background:linear-gradient(135deg,#2c1e16,#6e4b37)}
 .res-thumb.thumb-logo .res-label{color:#fff8ee}
-.res-thumb.thumb-logo .res-img{object-fit:contain;padding:10px 14px;background:#fffdf9}
+.res-thumb.thumb-logo .res-img{object-fit:contain;background:#fffdf9}
 .res-thumb.is-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,19,13,0),rgba(30,19,13,.34))}
 .res-play{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;width:44px;height:44px;place-items:center;padding-left:2px;border-radius:50%;color:var(--caramel);background:#fff8eeef;box-shadow:0 4px 18px #120b0659}
 .res-meta{padding:11px}
@@ -205,8 +205,7 @@ footer{padding:4px 22px 27px;color:#a2917f;font-size:10px;line-height:1.6;text-a
   .contact-card small{width:84px;flex:none}
   .contact-card b{flex:1;margin:0}
   .resources{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .res-thumb{height:84px}
-  .res-play{width:36px;height:36px;font-size:13px}
+  .res-play{width:34px;height:34px;font-size:12px}
 }
 @media(max-width:365px){
   .brand small{display:none}
