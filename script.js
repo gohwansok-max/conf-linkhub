@@ -104,7 +104,7 @@
       if (photo) {
         a.classList.add("has-photo");
         var img = el("img", "contact-photo");
-        img.src = photo; img.alt = d.title + " 프로필"; img.loading = "lazy";
+        img.src = photo; img.alt = d.title + " 프로필";
         a.appendChild(img);
       }
       if (href) {
