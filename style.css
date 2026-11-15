@@ -54,6 +54,21 @@ a:focus-visible{outline:3px solid #c99155;outline-offset:3px}
 .section-title small{color:#a2917f;font-size:9px;font-weight:800;letter-spacing:1.1px}
 .load-error{margin:0 0 20px;padding:12px;border-radius:12px;background:#fbeee1;color:#a14a24;font-size:12px;text-align:center}
 
+/* 포션 쇼케이스 — 히어로 바로 아래, 3열 카드 */
+.portion{padding:17px 13px 14px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,#fffdf9 0%,#f7f0e5 100%);box-shadow:var(--shadow)}
+.portion .section-title{align-items:center;margin:0 3px 7px}
+.portion .section-title h2{font-size:17px;letter-spacing:-1px;line-height:1.3}
+.portion .section-title small{flex:none;margin-left:8px;color:#b08a5c}
+.portion-copy{margin:0 3px 13px;color:var(--muted);font-size:10.5px;line-height:1.5}
+.portion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.portion-card{display:block;overflow:hidden;border:1px solid #efe4d4;border-radius:14px;background:var(--card);box-shadow:0 5px 14px rgba(74,50,37,.07);transition:.18s}
+.portion-card:hover,.portion-card:focus-visible{border-color:var(--latte);box-shadow:0 12px 26px rgba(74,50,37,.2);transform:translateY(-3px)}
+.portion-media{position:relative;aspect-ratio:9/16;overflow:hidden;background:#eee5d8}
+.portion-media img{display:block;width:100%;height:100%;object-fit:cover}
+.portion-caption{padding:8px 6px 9px;text-align:center}
+.portion-caption b{display:block;overflow:hidden;color:var(--roast);font-size:12px;letter-spacing:-.5px;text-overflow:ellipsis;white-space:nowrap}
+.portion-caption em{display:block;margin-top:2px;overflow:hidden;color:#ad9a86;font-size:7.5px;font-style:normal;font-weight:800;letter-spacing:.7px;text-overflow:ellipsis;white-space:nowrap}
+
 /* Card (SNS / 구매) */
 .social-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .purchase-list{display:grid;gap:10px}
@@ -120,6 +135,15 @@ footer{padding:4px 22px 27px;color:#a2917f;font-size:10px;line-height:1.6;text-a
   .qr-card{padding:8px}
   .qr-box{width:78px;height:78px}
   .content{padding-right:16px;padding-left:16px}
+  .portion{padding:15px 11px 12px;border-radius:18px}
+  .portion .section-title{display:block;margin-bottom:9px}
+  .portion .section-title h2{font-size:16px}
+  .portion .section-title small{display:block;margin:4px 0 0}
+  .portion-copy{font-size:10px}
+  .portion-grid{gap:6px}
+  .portion-caption{padding:7px 4px 8px}
+  .portion-caption b{font-size:11px}
+  .portion-caption em{font-size:7px}
   .contact-grid{grid-template-columns:1fr}
   .contact-card{display:flex;align-items:center;gap:9px;padding:12px}
   .contact-card small{width:84px;flex:none}
