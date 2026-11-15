@@ -82,6 +82,20 @@
     "임이랑 과장": "assets/profile-im-irang.png"
   };
 
+  // 홍보자료 카드 썸네일 이미지 (assets/ 폴더, icon 열 값 기준 매칭).
+  // 이미지가 없거나 로드에 실패하면 아래 RES_LABEL 문구가 대신 보인다.
+  var RES_THUMB = {
+    video: "assets/resource-video.jpg",
+    flyer: "assets/resource-flyer.jpg",
+    "ad-image": "assets/resource-ad.jpg",
+    logo: "assets/resource-logo.png"
+  };
+  var RES_LABEL = {
+    flyer: "CONF<br>제품소개서",
+    "ad-image": "광고<br>이미지",
+    logo: "CONF<br>LOGO"
+  };
+
   var builders = {
     sns: function (d, href) {
       var a = link(href, "card");
@@ -119,9 +133,22 @@
     },
     resource: function (d, href) {
       var a = link(href, "resource");
-      var thumb = el("div", d.icon === "video" ? "video-thumb" : "flyer-thumb thumb-" + d.icon);
-      if (d.icon === "video") thumb.appendChild(el("span", null, "▶"));
-      else thumb.innerHTML = {flyer: "CONF<br>제품소개서", "ad-image": "광고<br>이미지", logo: "CONF<br>LOGO"}[d.icon] || d.title;
+      var thumb = el("div", "res-thumb thumb-" + (d.icon || "default"));
+      if (d.icon === "video") thumb.classList.add("is-video");
+      var label = el("span", "res-label");
+      label.innerHTML = RES_LABEL[d.icon] || "";
+      thumb.appendChild(label);
+      var src = RES_THUMB[d.icon];
+      if (src) {
+        var img = el("img", "res-img");
+        img.src = src;
+        img.alt = d.title + " 대표 이미지";
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.addEventListener("error", function () { thumb.classList.add("img-missing"); });
+        thumb.appendChild(img);
+      } else thumb.classList.add("img-missing");
+      if (d.icon === "video") thumb.appendChild(el("span", "res-play", "▶"));
       var meta = el("div", "res-meta");
       meta.appendChild(el("b", null, d.title));
       if (d.subtitle) meta.appendChild(el("small", null, d.subtitle));
