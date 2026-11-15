@@ -140,6 +140,12 @@ a.card:hover,a.resource:hover,a.drive-button:hover{border-color:var(--latte);box
 /* 문의 */
 .contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
 .contact-card{min-width:0;padding:14px 11px;border:1px solid var(--line);border-radius:15px;background:var(--card);box-shadow:var(--shadow)}
+.contact-card{position:relative;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease}
+.contact-card:hover,.contact-card:focus-visible{transform:translateY(-4px);box-shadow:0 12px 24px rgba(90,60,30,.16)}
+.contact-card:active{transform:translateY(-1px)}
+.contact-card.has-photo b,.contact-card.has-photo small{position:relative;z-index:1;max-width:58%}
+.contact-photo{position:absolute;right:2px;bottom:0;height:98%;width:auto;pointer-events:none;transition:transform .3s ease}
+.contact-card:hover .contact-photo{transform:scale(1.06) translateY(-2px)}
 .contact-card small{display:block;overflow:hidden;color:var(--muted);font-size:9px;text-overflow:ellipsis;white-space:nowrap}
 .contact-card b{display:block;margin:6px 0 12px;font-size:14px;letter-spacing:-.5px;white-space:nowrap;color:var(--roast)}
 .contact-btn{color:var(--caramel);font-size:10px;font-weight:800}

@@ -75,6 +75,13 @@
     return s;
   }
 
+  // 담당자 프로필 사진 (assets/ 폴더, 이름 기준 매칭)
+  var PHOTOS = {
+    "김덕용 부장": "assets/profile-kim-deokyong.png",
+    "고환석 차장": "assets/profile-ko-hwanseok.png",
+    "임이랑 과장": "assets/profile-im-irang.png"
+  };
+
   var builders = {
     sns: function (d, href) {
       var a = link(href, "card");
@@ -93,6 +100,21 @@
       var btn = link(href, "contact-btn");
       btn.textContent = !href ? "준비 중" : (isMail ? "✉ 문의하기" : "☎ 전화 연결");
       a.appendChild(btn);
+      var photo = PHOTOS[d.title];
+      if (photo) {
+        a.classList.add("has-photo");
+        var img = el("img", "contact-photo");
+        img.src = photo; img.alt = d.title + " 프로필"; img.loading = "lazy";
+        a.appendChild(img);
+      }
+      if (href) {
+        // 카드 전체를 버튼처럼: 어디를 눌러도 전화/메일 연결
+        a.setAttribute("role", "link");
+        a.setAttribute("tabindex", "0");
+        a.setAttribute("aria-label", d.title + " " + d.subtitle + " 연결");
+        a.addEventListener("click", function (e) { if (!e.target.closest("a")) window.location.href = href; });
+        a.addEventListener("keydown", function (e) { if (e.key === "Enter") window.location.href = href; });
+      }
       return a;
     },
     resource: function (d, href) {
