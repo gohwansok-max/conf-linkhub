@@ -179,4 +179,34 @@
       document.querySelector(".content").insertAdjacentHTML("afterbegin",
         '<p class="load-error">링크 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</p>');
     });
+
+  (function notifyVisit() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get("me") === "1") {
+        localStorage.setItem("conf3_ignore_visit", "1");
+        params.delete("me");
+        var clean = window.location.pathname + (params.toString() ? "?" + params.toString() : "") + window.location.hash;
+        window.history.replaceState(null, "", clean);
+        return;
+      }
+      if (params.get("me") === "0") {
+        localStorage.removeItem("conf3_ignore_visit");
+      }
+      if (localStorage.getItem("conf3_ignore_visit") === "1") return;
+      if (navigator.webdriver || /bot|crawler|spider|kakaotalk|facebookexternalhit|slackbot|telegrambot|whatsapp|headless/i.test(navigator.userAgent)) return;
+      if (sessionStorage.getItem("conf3_visit_sent") === "1") return;
+      sessionStorage.setItem("conf3_visit_sent", "1");
+
+      fetch("https://qaplus-telegram-webhook.gohwansok.workers.dev/conf3-visit", {
+        method: "POST",
+        keepalive: true,
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+          ref: document.referrer || "직접 접속",
+          path: window.location.pathname + window.location.search
+        })
+      }).catch(function () {});
+    } catch (e) {}
+  })();
 })();
