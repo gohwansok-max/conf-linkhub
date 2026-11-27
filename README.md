@@ -1,37 +1,56 @@
-# 코엔에프(CONF) 공식 링크 허브
+# 코엔에프(CONF) 제품 홍보 허브
 
-공식 SNS, 구매처, 담당자 연락처, 홍보자료를 한 곳에 모은 GitHub Pages 정적 사이트.
+포션커피·꿀생강차·꿀대추차 소개와 공식 구매처, SNS, 담당자 연락처, 홍보자료를 제공하는 GitHub Pages 정적 사이트입니다. 제품 선택에 따라 사진·영상·설명·색감·구매 링크가 함께 바뀝니다.
 
-- 운영 주소: https://conf3.qaplus.kr (`CNAME` 파일 + 가비아 CNAME `conf3` → `gohwansok-max.github.io`)
+- 운영 주소: https://conf3.qaplus.kr (`CNAME` 파일 및 기존 DNS 유지)
 - 기본 주소: https://gohwansok-max.github.io/conf-linkhub/
+- 배포: 기존 저장소 `main` 브랜치 루트 → GitHub Pages 자동 배포
 
-## 구조
+## 수정 위치
 
 | 파일 | 역할 |
 |---|---|
-| `data/links.csv` | **링크·연락처 데이터 (여기만 수정)** |
-| `index.html` / `style.css` / `script.js` | 화면 (수정 불필요) |
-| `assets/qr.svg` | QR 이미지 (없으면 "QR" 빈 칸 표시) |
+| `data/links.csv` | 기존 SNS·공식 구매처·담당자·자료실 링크 관리 |
+| `data/products.json` | 대표 제품의 직접 구매 URL·사진·영상·문구 |
+| `index.html` | 정적 본문·구매 링크·공유 메타데이터 |
+| `style.css` | 기존 설치 안내·연락처·자료실 기본 스타일 |
+| `experience.css` / `experience.js` | 제품 경험·반응형·애니메이션·공유·행사 종료 처리 |
+| `assets/share-card.html` | 1200×630 공유 이미지의 편집 가능한 HTML 원본 |
+| `assets/og-products.png` | 실제 공유 미리보기 이미지 |
+| `assets/qr.svg` | 기존 운영 주소 QR 코드 |
+| `service-worker.js` | 설치형 앱의 버전별 네트워크 우선 캐시 |
+| `signature.html` | 기존 메일 서명 페이지, 수정하지 않음 |
+
+제품 정보를 변경할 때 `data/products.json`과 `index.html`의 정적 제품 링크·이미지도 함께 맞춥니다. 제품 데이터 요청 실패 또는 JavaScript 비활성 환경에서는 정적 HTML 링크를 사용합니다. 가격·혜택을 새로 추정해 추가하지 않습니다.
 
 ## 링크 입력 방법 (엑셀)
 
-1. 엑셀에서 `data/links.csv`를 열어 `url` 열만 채움 (열·행 순서 유지)
-2. **다른 이름으로 저장 → CSV UTF-8(쉼표로 분리)** 로 저장해 덮어쓰기
-3. 커밋/푸시 → 1~2분 후 반영
+`data/links.csv`를 엑셀에서 열고 CSV UTF-8 형식으로 저장합니다. 기존 열·행 순서를 유지합니다. `group`은 sns / shop / contact / resource / drive, `title`·`subtitle`은 표시 문구, `url`은 연결 주소입니다. 비어 있는 URL은 클릭 불가능한 준비 중 상태가 됩니다. `use`가 `사용`인 행만 표시합니다. `note`는 화면에 표시되지 않습니다.
 
-| 열 | 설명 |
-|---|---|
-| `group` | sns / shop / contact / resource / drive (변경 금지) |
-| `icon` | 아이콘 종류 (변경 금지) |
-| `title`, `subtitle` | 화면 표시 문구 |
-| `url` | 링크. 비우면 "준비 중"(클릭 불가) 표시 |
-| `use` | `사용`만 화면에 표시 (보류/미사용은 숨김) |
-| `note` | 메모 (화면 미표시) |
+연락처는 `010-1234-5678` 또는 이메일만 입력해도 자동 연결됩니다. 같은 `group`의 행을 추가하면 목록에 반영됩니다. 대량구매 버튼은 CSV의 첫 번째 영업 담당 연락처와 연결됩니다. 기존 방문 알림과 방문 제외 `?me=1`·재포함 `?me=0` 기능을 유지합니다. 검증용 호스트에서는 운영 방문 알림을 발송하지 않습니다.
 
-- 연락처는 `010-1234-5678` 또는 `name@example.com` 만 적으면 전화/메일로 자동 연결
-- `https://` 생략 가능 (자동 보완)
-- 행 추가: 같은 `group`으로 한 줄 추가하면 해당 섹션에 표시됨
+## 행사 종료 관리
 
-## 로컬 미리보기
+이번 블랙프라이데이는 `experience.js`의 `promotionEnd = Date.parse('2026-12-01T00:00:00+09:00')`를 기준으로 종료합니다. 즉 2026년 11월 30일 한국 시간까지 표시됩니다. 이후 행사 영역·이미지·스마트스토어 행사 안내를 숨기며 대표 제품과 일반 구매처는 계속 표시합니다. 탭을 열어 둔 경우에도 종료 타이머와 재활성화 시 갱신합니다. 행사 조건을 변경할 때 HTML의 가격·혜택·종료 문구와 종료 상수를 함께 갱신합니다. 판단 기준은 방문 기기의 시간입니다.
 
-`python3 -m http.server` 실행 후 http://localhost:8000 (파일 직접 열기는 CSV 로드가 막힘)
+## 미디어·접근성
+
+GIF 원본은 삭제하지 않았습니다. 웹에서는 원본 224×398 해상도를 유지한 H.264/yuv420p/faststart/무음 MP4와 정지 포스터를 사용합니다. 선택한 제품 영상 하나만 재생하고 화면 밖·숨겨진 탭·움직임 멈춤 시 정지합니다. 영상 오류 시 포스터를 표시합니다. 움직임 줄이기 또는 데이터 절약 설정에서는 자동재생을 하지 않습니다. 제품 선택은 방향키·Home·End로도 사용할 수 있습니다. 모바일 구매 버튼은 기기 하단 안전영역과 본문 여백을 고려합니다.
+
+## 제품·사진 근거
+
+확인일: 2026-11-28. 제품 구매는 아래 공식몰 상세페이지에서 진행합니다.
+
+- 포션커피 아메리카노 블랙 30개입: https://confshop.kr/product/detail.html?product_no=19
+- 꿀생강차: https://confshop.kr/product/detail.html?product_no=227
+- 꿀대추차: https://confshop.kr/product/detail.html?product_no=226
+
+사용한 사진은 기존 저장소의 `resource-ad.jpg`와 공식몰 상세페이지 자산입니다. 새 제품·라벨·인증을 생성하지 않았으며 원본을 업스케일하지 않았습니다.
+
+- 커피: https://ecimg.cafe24img.com/pg386b65045721048/copotion1/web/upload/NNEditor/20260612/fc81f7de2b80d62969813d3e32b3c56b.jpg
+- 꿀생강차: https://ecimg.cafe24img.com/pg386b65045721048/copotion1/web/upload/NNEditor/20261111/ED8BB0EC95A4EB939CEBA1AD_EABF80EC839DEAB095ECB0A8_01_ECB2ABED9994EBA9B4.png
+- 꿀대추차: https://ecimg.cafe24img.com/pg386b65045721048/copotion1/web/upload/NNEditor/20261111/ED8BB0EC95A4EB939CEBA1AD_EABF80EB8C80ECB694ECB0A8_01_ECB2ABED9994EBA9B4.png
+
+## 로컬 실행·캐시 갱신
+
+`python3 -m http.server 8000` 실행 후 `http://localhost:8000`에서 확인합니다. 파일을 직접 열면 CSV 요청이 막힙니다. 화면과 동작 변경 시 HTML의 CSS·JS 버전 쿼리와 `service-worker.js`의 CACHE 이름·ASSETS를 함께 갱신합니다. 동영상 범위 요청과 MP4는 캐시 가로채기를 하지 않습니다. 새로운 분석 도구·광고 픽셀·개인정보 수집 기능은 추가하지 않았습니다.

@@ -1,0 +1,38 @@
+{
+  "coffee": {
+    "name": "포션커피",
+    "kicker": "커피가 생각나는 순간",
+    "description": "집에서도, 사무실에서도. 물에 붓고 간편하게 즐기는 커피.",
+    "url": "https://confshop.kr/product/detail.html?product_no=19",
+    "image": "assets/resource-ad.jpg",
+    "alt": "코엔에프 포션커피 제품과 완성된 아이스커피",
+    "width": 900,
+    "height": 600,
+    "poster": "assets/potion-coffee-poster.jpg",
+    "video": "assets/potion-coffee.mp4"
+  },
+  "ginger": {
+    "name": "꿀생강차",
+    "kicker": "생강차가 생각날 때",
+    "description": "생강차가 생각날 때. 한 개씩 꺼내 간편하게 즐기는 꿀생강차.",
+    "url": "https://confshop.kr/product/detail.html?product_no=227",
+    "image": "assets/product-ginger.jpg",
+    "alt": "코엔에프 꿀생강차 포션과 완성된 생강차",
+    "width": 860,
+    "height": 1520,
+    "poster": "assets/potion-ginger-poster.jpg",
+    "video": "assets/potion-ginger.mp4"
+  },
+  "jujube": {
+    "name": "꿀대추차",
+    "kicker": "차 한 잔의 여유",
+    "description": "차 한 잔의 여유가 필요할 때. 나만의 시간에 함께하는 꿀대추차.",
+    "url": "https://confshop.kr/product/detail.html?product_no=226",
+    "image": "assets/product-jujube.jpg",
+    "alt": "코엔에프 꿀대추차 포션과 완성된 대추차",
+    "width": 860,
+    "height": 1520,
+    "poster": "assets/potion-jujube-poster.jpg",
+    "video": "assets/potion-jujube.mp4"
+  }
+}

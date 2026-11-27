@@ -104,6 +104,9 @@
     },
     shop: function (d, href) {
       var a = link(href, "card purchase");
+      if (d.icon === "smartstore" && window.ConfExperience && !window.ConfExperience.isPromotionActive()) {
+        d = Object.assign({}, d, { subtitle: "코엔에프 공식 스마트스토어" });
+      }
       a.append(iconBox("purchase-icon", d), textBox(d), el("strong", null, href ? "›" : "준비 중"));
       return a;
     },
@@ -170,6 +173,7 @@
         box.appendChild(builders[g](r, normalizeHref(r.url)));
       });
     });
+    document.dispatchEvent(new Event("conf:links-ready"));
   }
 
   fetch("data/links.csv", { cache: "no-cache" })
@@ -182,6 +186,7 @@
 
   (function notifyVisit() {
     try {
+      if (window.location.hostname !== "conf3.qaplus.kr" && window.location.hostname !== "gohwansok-max.github.io") return;
       var params = new URLSearchParams(window.location.search);
       if (params.get("me") === "1") {
         localStorage.setItem("conf3_ignore_visit", "1");
