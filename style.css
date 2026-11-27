@@ -249,7 +249,8 @@ footer{padding:4px 22px 27px;color:#a2917f;font-size:10px;line-height:1.6;text-a
 }
 @media(max-width:430px){
   .promo{padding:15px 12px 13px;border-radius:18px}
-  .promo-head{margin-bottom:10px}
+  .promo-head{flex-direction:column;align-items:flex-start;gap:7px;margin-bottom:10px}
+  .promo-head-text{flex:auto;width:100%}
   .promo-head h2{font-size:16px;letter-spacing:-.9px}
   .promo-eyebrow{font-size:8.5px;letter-spacing:1.2px}
   .promo-deadline{font-size:9.5px;padding:4px 8px}
