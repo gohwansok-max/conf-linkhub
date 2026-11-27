@@ -183,11 +183,8 @@
   var remaining = promotionEnd - Date.now();
   if (remaining > 0 && remaining < 2147483647) window.setTimeout(updatePromotion, remaining + 100);
   document.addEventListener('visibilitychange', function () { updatePromotion(); syncPlayback(); });
-  document.addEventListener('conf:links-ready', function () {
-    var contact = document.querySelector('#contact .contact-card .contact-btn');
-    if (contact && contact.href) document.querySelectorAll('[data-bulk-inquiry]').forEach(function (a) { a.href = contact.href; });
-    updatePromotion();
-  });
+  // 대량구매 번호는 index.html의 지정 담당자를 유지하며 CSV 목록 순서에 영향받지 않는다.
+  document.addEventListener('conf:links-ready', updatePromotion);
 
   document.getElementById('share-btn').addEventListener('click', async function () {
     var status = document.getElementById('share-status');

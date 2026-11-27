@@ -1,7 +1,7 @@
-const CACHE = 'conf-linkhub-v10';
+const CACHE = 'conf-linkhub-v11';
 const ASSETS = [
   './', './index.html', './style.css?v=20261128', './experience.css?v=20261128',
-  './script.js?v=20261128', './experience.js?v=20261128', './install.js',
+  './script.js?v=20261128', './experience.js?v=20261128-bulk', './install.js',
   './data/links.csv', './data/products.json', './assets/qr.svg',
   './assets/resource-ad.jpg', './assets/potion-coffee-poster.jpg',
   './assets/potion-ginger-poster.jpg', './assets/potion-jujube-poster.jpg',
