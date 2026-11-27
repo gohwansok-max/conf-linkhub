@@ -108,7 +108,7 @@ body.install-fallback::before{content:"";position:fixed;inset:0;z-index:9998;bac
 .promo-card:focus-visible{outline:3px solid #e2c6a1;outline-offset:3px}
 .promo-media{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:10px;background:#eee5d8}
 .promo-media img{display:block;width:100%;height:100%;object-fit:cover}
-.promo-badge{position:absolute;top:4px;left:4px;padding:2px 6px;border-radius:7px;color:#fff8ee;background:linear-gradient(135deg,#e0532c,#b8351a);font-size:9.5px;font-weight:900;line-height:1.45;letter-spacing:-.4px;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.promo-badge{position:absolute;bottom:5px;left:5px;padding:2px 6px;border-radius:7px;color:#fff8ee;background:linear-gradient(135deg,#e0532c,#b8351a);font-size:9.5px;font-weight:900;line-height:1.45;letter-spacing:-.4px;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.35)}
 .promo-body{min-width:0}
 .promo-name{display:-webkit-box;overflow:hidden;color:var(--roast);font-size:12px;line-height:1.32;letter-spacing:-.5px;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .promo-sub{display:block;margin-top:3px;overflow:hidden;color:var(--muted);font-size:9px;line-height:1.35;white-space:nowrap;text-overflow:ellipsis}
